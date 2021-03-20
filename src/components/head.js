@@ -25,29 +25,23 @@ const Head = ({ title, description, image }) => {
     `,
   );
 
-  const {
-    defaultTitle,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-    twitterUsername,
-  } = site.siteMetadata;
+  const { defaultDescription, siteUrl, defaultImage, twitterUsername } = site.siteMetadata;
 
   const seo = {
-    title: title || defaultTitle,
+    title: title,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
   };
 
   return (
-    <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defaultTitle}`}>
+    <Helmet title={'Weifeng Li'}>
       <html lang="en" />
 
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
 
-      <meta property="og:title" content={seo.title} />
+      <meta property="og:title" content={'Weifeng Li'} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
       <meta property="og:url" content={seo.url} />
